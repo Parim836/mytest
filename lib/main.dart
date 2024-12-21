@@ -40,13 +40,35 @@ class MyApp extends StatelessWidget {
               leading: const Icon(Icons.add),
               backgroundColor: Colors.pink,
             ),
-            body: Container(
-                height: 100,
-                width: 100,
-                color: Colors.lightBlueAccent,
-                padding: const EdgeInsets.all(20),
-                margin: const EdgeInsets.all(20),
-                child: const Text('Hello')),
+            body: //Container(
+                // height: 100,
+                // width: 100,
+                // color: Colors.lightBlueAccent,
+                // padding: const EdgeInsets.all(20),
+                // margin: const EdgeInsets.all(20),
+                // child: const Text('Hello')),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                  Container(
+                      height: 150,
+                      width: 100,
+                      padding: const EdgeInsets.all(20),
+                      color: Colors.blueGrey,
+                      child: const Text("Item 1",
+                          style: TextStyle(color: Colors.white))),
+                  Container(
+                      padding: const EdgeInsets.all(20),
+                      color: Colors.blueGrey,
+                      child: const Text("Item 2",
+                          style: TextStyle(color: Colors.white))),
+                  Container(
+                      padding: const EdgeInsets.all(20),
+                      color: Colors.blueGrey,
+                      child: const Text("Item 3",
+                          style: TextStyle(color: Colors.white))),
+                ]),
             floatingActionButton: FloatingActionButton(
               onPressed: () {
                 print("Hello");
