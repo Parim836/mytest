@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MaterialApp(
+    home: Layout4(),
+  ));
+}
+
 class Layout4 extends StatelessWidget {
   const Layout4({super.key});
 
