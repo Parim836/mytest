@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mytest/page_answer/answer1.dart';
 import 'package:mytest/my_stateful.dart';
-import 'package:mytest/page_answer/answer2.dart';
-import 'package:mytest/page_answer/answer3.dart';
-import 'package:mytest/page_answer/answer4.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +31,7 @@ class MyApp extends StatelessWidget {
               seedColor: const Color.fromARGB(255, 235, 155, 235)),
           useMaterial3: true,
         ),
-        home: const Layout4());
+        home: const MyStateful());
 
     // body : Container(
     //   height:100,
