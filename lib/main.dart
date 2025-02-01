@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mytest/form_dart/form_input.dart';
+import 'package:mytest/form_dart/from_simple.dart';
 import 'package:mytest/page_answer/answer1.dart';
 import 'package:mytest/my_stateful.dart';
 import 'package:mytest/page_answer/answer2.dart';
@@ -35,7 +37,9 @@ class MyApp extends StatelessWidget {
               seedColor: const Color.fromARGB(255, 235, 155, 235)),
           useMaterial3: true,
         ),
-        home: const Layout4());
+        home: Builder(builder: (context) {
+          return const RegistrationForm();
+        }));
 
     // body : Container(
     //   height:100,
@@ -74,6 +78,14 @@ class MyApp extends StatelessWidget {
     // child: const Icon(Icons.phone),
     //   ),
   }
+}
+
+class MyWidgetState {
+  const MyWidgetState();
+}
+
+class _MyWidgetState {
+  const _MyWidgetState();
 }
 
 class GreetingWidget extends StatelessWidget {
