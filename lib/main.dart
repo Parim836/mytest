@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mytest/api/api.dart';
 import 'package:mytest/form_dart/form_input.dart';
 import 'package:mytest/form_dart/from_simple.dart';
+import 'package:mytest/homework2/air_quality.dart';
 import 'package:mytest/page_answer/answer1.dart';
 import 'package:mytest/my_stateful.dart';
 import 'package:mytest/page_answer/answer2.dart';
@@ -29,17 +31,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color.fromARGB(255, 235, 155, 235)),
-          useMaterial3: true,
-        ),
-        home: Builder(builder: (context) {
-          return const RegistrationForm();
-        }));
+    return const MaterialApp(
+      home: AirQualityScreen(),
+      debugShowCheckedModeBanner: false,
+    );
 
     // body : Container(
     //   height:100,
