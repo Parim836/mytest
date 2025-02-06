@@ -26,8 +26,8 @@ class _SimpleApiCallState extends State<SimpleApiCall> {
       } else {
         print('Invalid data');
       }
-    } catch (e) {
-      print(e);
+    } catch (p) {
+      print(p);
     }
 
     void initState() {
