@@ -32,7 +32,7 @@ class _AirQualityScreenState extends State<AirQualityScreen> {
     }
   }
 
-  String getAirQualityMessage(int aqi) {
+  String getMessage(int aqi) {
     if (aqi <= 50) {
       return "Good 😊";
     } else if (aqi <= 100) {
@@ -48,7 +48,7 @@ class _AirQualityScreenState extends State<AirQualityScreen> {
     }
   }
 
-  Color _getBorderColor(int aqi) {
+  Color _getColor(int aqi) {
     if (aqi <= 50) {
       return Colors.green;
     } else if (aqi <= 100) {
@@ -94,15 +94,15 @@ class _AirQualityScreenState extends State<AirQualityScreen> {
                 ),
                 const SizedBox(height: 40),
                 Container(
-                  width: 250,
-                  height: 250,
+                  width: 190,
+                  height: 190,
                   padding: const EdgeInsets.all(30),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: _getBorderColor(airQuality!.aqi),
+                        color: _getColor(airQuality!.aqi),
                         blurRadius: 20,
                         spreadRadius: 15,
                       ),
@@ -112,34 +112,35 @@ class _AirQualityScreenState extends State<AirQualityScreen> {
                     children: [
                       const Text(
                         'PM2.5',
-                        style: TextStyle(fontSize: 18, color: Colors.grey),
+                        style: TextStyle(fontSize: 20, color: Colors.grey),
                       ),
                       Text(
                         airQuality!.aqi.toString(),
                         style: const TextStyle(
                           fontSize: 48,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: Color.fromARGB(255, 73, 72, 72),
                         ),
                       ),
                       const Text(
                         'µg/m3',
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                        style: TextStyle(fontSize: 17, color: Colors.grey),
                       ),
                       const SizedBox(height: 7),
-                      Text(
-                        getAirQualityMessage(airQuality!.aqi),
-                        style:
-                            const TextStyle(fontSize: 17, color: Colors.grey),
-                      ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 40),
+                Text(
+                  getMessage(airQuality!.aqi),
+                  style: const TextStyle(
+                      fontSize: 25, color: Color.fromARGB(255, 83, 82, 82)),
+                ),
+                const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildInfoCard(
+                    _buildInfo(
                       'Temperature',
                       '${airQuality!.temperature}°C',
                       Icons.thermostat,
@@ -159,12 +160,12 @@ class _AirQualityScreenState extends State<AirQualityScreen> {
     );
   }
 
-  Widget _buildInfoCard(String title, String value, IconData icon) {
+  Widget _buildInfo(String title, String value, IconData icon) {
     return Container(
       width: 200,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 238, 238, 238),
+        color: const Color.fromARGB(255, 241, 241, 241),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [const BoxShadow(color: Colors.black12)],
       ),
@@ -176,7 +177,8 @@ class _AirQualityScreenState extends State<AirQualityScreen> {
               Icon(icon, color: Colors.blue, size: 32),
               const SizedBox(width: 8),
               Text(title,
-                  style: const TextStyle(fontSize: 16, color: Colors.grey)),
+                  style: const TextStyle(
+                      fontSize: 16, color: Color.fromARGB(255, 126, 126, 126))),
             ],
           ),
           const SizedBox(height: 8),
