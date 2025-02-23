@@ -76,7 +76,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
         throw Exception("Failed to save product");
       }
     } catch (e) {
-      print("❌ Error: $e");
+      print("Error: $e");
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text("An error occurred! Please try again."),

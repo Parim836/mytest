@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'addProduct.dart';
+import 'AddProduct.dart';
 import 'dart:convert';
 
 class ProductListScreen extends StatefulWidget {
