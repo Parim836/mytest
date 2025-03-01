@@ -1,0 +1,2 @@
+C:/Users/HP/mytest/android/app/.cxx/Debug/455k7181/x86/CMakeFiles/edit_cache.dir
+C:/Users/HP/mytest/android/app/.cxx/Debug/455k7181/x86/CMakeFiles/rebuild_cache.dir

@@ -9,6 +9,7 @@ import 'package:mytest/my_stateful.dart';
 import 'package:mytest/page_answer/answer2.dart';
 import 'package:mytest/page_answer/answer3.dart';
 import 'package:mytest/page_answer/answer4.dart';
+import 'package:mytest/week%206/widgetProfileCard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProductListScreen(),
+      home: MyWidget(),
       debugShowCheckedModeBanner: false,
     );
 
@@ -96,6 +97,55 @@ class GreetingWidget extends StatelessWidget {
             backgroundColor: const Color.fromARGB(255, 244, 171, 195),
             centerTitle: true),
         body: Center(child: Text('Hello, $name')));
+  }
+}
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text('Custom Widget')),
+        // body: Center(
+        //   child: Column(
+        //     children: [
+        //       CustomCard(text: 'Blue', backgroundColor: const Color.fromARGB(255, 29, 16, 166), isCircle: true),
+        //       SizedBox(height: 20),
+        //       CustomCard(text: 'Red', backgroundColor: const Color.fromARGB(255, 168, 35, 48)),
+        //       SizedBox(height: 20),
+        //       CustomCard(text: 'Yellow', backgroundColor: const Color.fromARGB(255, 225, 207, 85)),
+        //     ],
+        //   )
+
+        // )
+        // body: const Center(
+        //   child: Column(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: [
+        //       CustomCounterWidget(
+        //         title: 'TEAM A',
+        //         backgroundColor: Colors.red,
+        //       ),
+        //       SizedBox(height: 10),
+        //       CustomCounterWidget(
+        //           title: 'TEAM B', backgroundColor: Colors.blue),
+        //     ],
+        //   ),
+        // )
+         body: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ProfileCard(
+                name: 'Patcharaporn Paythaisong', 
+                position: 'Student', 
+                email: 'paythaisong_p@silpakorn.edu', 
+                phone: '0805674895',
+                imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBCSncMky3y5D6cePikzRjNvJs2QozdiHruxOlu0fl1GUAFkOYbfy1iGSnyun6aQBuSeQ&usqp=CAU')
+            ],
+          ),
+        )
+        );
   }
 }
 
