@@ -244,26 +244,26 @@ class _TrafficLightScreenState extends State<TrafficLightScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Traffic Light Animation")),
-      body: Center(  // ใช้ Center เพื่อให้ทุกอย่างอยู่ตรงกลาง
+      body: Center(  
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AnimatedOpacity(
               duration: const Duration(seconds: 1),
               opacity: _currentLight == 0 ? 1.0 : 0.3,
-              child: _buildTrafficLight(Colors.red),
+              child: _buildTrafficLight(const Color.fromARGB(255, 226, 109, 101)),
             ),
             const SizedBox(height: 20),
             AnimatedOpacity(
               duration: const Duration(seconds: 1),
               opacity: _currentLight == 1 ? 1.0 : 0.3,
-              child: _buildTrafficLight(Colors.yellow),
+              child: _buildTrafficLight(const Color.fromARGB(255, 239, 227, 122)),
             ),
             const SizedBox(height: 20),
             AnimatedOpacity(
               duration: const Duration(seconds: 1),
               opacity: _currentLight == 2 ? 1.0 : 0.3,
-              child: _buildTrafficLight(Colors.green),
+              child: _buildTrafficLight(const Color.fromARGB(255, 133, 225, 136)),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
