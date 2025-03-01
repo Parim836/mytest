@@ -8,19 +8,23 @@ class ProfileCard extends StatelessWidget {
   final String imageUrl;
 
   const ProfileCard({
-    required this.name, 
-    required this.position, 
-    required this.email, 
-    required this.phone, 
-    required this.imageUrl});
+    required this.name,
+    required this.position,
+    required this.email,
+    required this.phone,
+    required this.imageUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
+    // ตรวจสอบธีมปัจจุบัน
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
-       padding: EdgeInsets.all(16),
-       margin: EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
+      margin: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white, // สีพื้นหลัง
+        color: isDarkMode ? Colors.black : Colors.white, // เปลี่ยนสีพื้นหลังตามธีม
         borderRadius: BorderRadius.circular(15), // มุมโค้งมน
         boxShadow: [
           BoxShadow(
@@ -31,44 +35,61 @@ class ProfileCard extends StatelessWidget {
           ),
         ],
       ),
-     child: Column(
-      children: [
-        CircleAvatar(
+      child: Column(
+        children: [
+          CircleAvatar(
             radius: 40,
             backgroundImage: NetworkImage(imageUrl),
           ),
           SizedBox(height: 10),
-
           Text(
             name,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: isDarkMode ? Colors.white : const Color.fromARGB(255, 43, 37, 37), // เปลี่ยนสีข้อความตามธีม
+            ),
           ),
           SizedBox(height: 5),
-
           Text(
             position,
-            style: TextStyle(fontSize: 14, color: Colors.grey),
+            style: TextStyle(
+              fontSize: 14,
+              color: isDarkMode ? Colors.white70 : Colors.grey, // เปลี่ยนสีข้อความตำแหน่ง
+            ),
           ),
           SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.email, size: 16, color: Colors.blue),
+              Icon(Icons.email, size: 16, color: isDarkMode ? Colors.blueAccent : Colors.blue),
               SizedBox(width: 5),
-              Text(email, style: TextStyle(fontSize: 14)),
+              Text(
+                email,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: isDarkMode ? Colors.white70 : Colors.black,
+                ),
+              ),
             ],
           ),
           SizedBox(height: 5),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.phone, size: 16, color: Colors.green),
+              Icon(Icons.phone, size: 16, color: isDarkMode ? Colors.greenAccent : Colors.green),
               SizedBox(width: 5),
-              Text(phone, style: TextStyle(fontSize: 14)),
+              Text(
+                phone,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: isDarkMode ? Colors.white70 : Colors.black,
+                ),
+              ),
             ],
           ),
-      ],
-     ),
+        ],
+      ),
     );
   }
 }

@@ -1,238 +1,298 @@
-import 'package:flutter/material.dart';
-import 'package:mytest/api/api.dart';
-import 'package:mytest/form_dart/form_input.dart';
-import 'package:mytest/form_dart/from_simple.dart';
-import 'package:mytest/homework2/airquality.dart';
-import 'package:mytest/Homework3/ProductService.dart';
-import 'package:mytest/page_answer/answer1.dart';
-import 'package:mytest/my_stateful.dart';
-import 'package:mytest/page_answer/answer2.dart';
-import 'package:mytest/page_answer/answer3.dart';
-import 'package:mytest/page_answer/answer4.dart';
-import 'package:mytest/week%206/widgetProfileCard.dart';
+// // import 'package:flutter/material.dart';
+// // import 'package:mytest/week%206/widgetProfileCard.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// // void main() {
+// //   runApp(const MyApp());
+// // }
 
-// class GreetingWidget extends StatelessWidget {
-//   const GreetingWidget({super.key});
+// // class MyApp extends StatefulWidget {
+// //   const MyApp({super.key});
+
+// //   @override
+// //   State<MyApp> createState() => _MyAppState();
+// // }
+
+// // class _MyAppState extends State<MyApp> {
+// //   ThemeMode _themeMode = ThemeMode.light;
+
+// //   void _toggleTheme() {
+// //     setState(() {
+// //       _themeMode = (_themeMode == ThemeMode.light) ? ThemeMode.dark : ThemeMode.light;
+// //     });
+// //   }
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return MaterialApp(
+// //       home: MyWidget(toggleTheme: _toggleTheme),
+// //       debugShowCheckedModeBanner: false,
+// //       theme: ThemeData.light().copyWith(
+// //         scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
+// //         textTheme: const TextTheme(
+// //           bodyMedium: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+// //         ),
+// //         appBarTheme: AppBarTheme(
+// //           backgroundColor: Colors.blue, // สีพื้นหลังของ AppBar ในธีมสว่าง
+// //           titleTextStyle: TextStyle(color: Colors.black), // สีข้อความใน AppBar
+// //         ),
+// //       ),
+// //       darkTheme: ThemeData.dark().copyWith(
+// //         scaffoldBackgroundColor: const Color.fromARGB(255, 79, 75, 75),
+// //         textTheme: const TextTheme(
+// //           bodyMedium: TextStyle(color: Colors.white),
+// //         ),
+// //         appBarTheme: AppBarTheme(
+// //           backgroundColor: const Color.fromARGB(255, 79, 75, 75), // เปลี่ยนสีพื้นหลังของ AppBar ในธีมมืด
+// //           titleTextStyle: TextStyle(color: Colors.white), // สีข้อความใน AppBar
+// //         ),
+// //       ),
+// //       themeMode: _themeMode,
+// //     );
+// //   }
+// // }
+
+// // class GreetingWidget extends StatelessWidget {
+// //   final String name;
+// //   const GreetingWidget({super.key, required this.name});
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Scaffold(
+// //       appBar: AppBar(
+// //         title: const Text('Demo APP'),
+// //         backgroundColor: const Color.fromARGB(255, 244, 171, 195),
+// //         centerTitle: true,
+// //       ),
+// //       body: Center(child: Text('Hello, $name')),
+// //     );
+// //   }
+// // }
+
+// // class MyWidget extends StatelessWidget {
+// //   final Function toggleTheme;
+// //   const MyWidget({super.key, required this.toggleTheme});
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Scaffold(
+// //       appBar: AppBar(title: const Text('')),
+// //       body: Column(
+// //         mainAxisAlignment: MainAxisAlignment.center,
+// //         children: [
+// //           ProfileCard(
+// //             name: 'Patcharaporn Paythaisong',
+// //             position: 'Student',
+// //             email: 'paythaisong_p@silpakorn.edu',
+// //             phone: '0805674895',
+// //             imageUrl:
+// //                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBCSncMky3y5D6cePikzRjNvJs2QozdiHruxOlu0fl1GUAFkOYbfy1iGSnyun6aQBuSeQ&usqp=CAU',
+// //           ),
+// //           ElevatedButton(
+// //             onPressed: () {
+// //               toggleTheme(); // เรียกฟังก์ชันที่ส่งมาจาก MyApp เพื่อสลับธีม
+// //             },
+// //             child: const Text("Toggle Theme"),
+// //           ),
+// //           const AnimatedDemo(),
+// //         ],
+// //       ),
+// //     );
+// //   }
+// // }
+
+// // class AnimatedDemo extends StatefulWidget {
+// //   const AnimatedDemo({super.key});
+
+// //   @override
+// //   State<AnimatedDemo> createState() => _AnimatedDemoState();
+// // }
+
+// // class _AnimatedDemoState extends State<AnimatedDemo> {
+// //   Color _color = Colors.blue; // ตัวแปรสีที่ใช้เก็บสีของกล่อง
+
+// //   void _changeBox() {
+// //     setState(() {
+// //       // เปลี่ยนสีของกล่องระหว่างสีน้ำเงินและสีแดง
+// //       _color = _color == Colors.blue ? Colors.red : Colors.blue;
+// //     });
+// //   }
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Column(
+// //       mainAxisAlignment: MainAxisAlignment.center,
+// //       children: [
+// //         // ใช้ AnimatedContainer เพื่อให้เกิดการเปลี่ยนแปลงสีอย่างสมูท
+// //         AnimatedContainer(
+// //           duration: const Duration(seconds: 1), // เวลาที่ใช้ในการเปลี่ยนแปลง
+// //           width: 200,
+// //           height: 200,
+// //           color: _color, // ใช้สีที่กำหนดในตัวแปร _color
+// //         ),
+// //         ElevatedButton(
+// //           onPressed: _changeBox, // เรียกฟังก์ชัน _changeBox เพื่อเปลี่ยนสี
+// //           child: const Text("Change Box Color"),
+// //         ),
+// //       ],
+// //     );
+// //   }
+// // }
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(TrafficLightApp());
+// }
+
+// class TrafficLightApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: TrafficLightScreen(),
+//     );
+//   }
+// }
+
+// class TrafficLightScreen extends StatefulWidget {
+//   @override
+//   _TrafficLightScreenState createState() => _TrafficLightScreenState();
+// }
+
+// class _TrafficLightScreenState extends State<TrafficLightScreen> {
+//   int _currentLight = 0; // 0 = แดง, 1 = เหลือง, 2 = เขียว
+
+//   void _changeLight() {
+//     setState(() {
+//       _currentLight = (_currentLight + 1) % 3;
+//     });
+//   }
 
 //   @override
 //   Widget build(BuildContext context) {
-//    return Scaffold(
-//      appBar: AppBar(title: const Text('Demo APP')),
-//      body: const Center(child: Text('Hello Elonmusk'))
-//      );
+//     return Scaffold(
+//       appBar: AppBar(title: Text("Traffic Light Animation")),
+//       body: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           _buildTrafficLight(Colors.red, _currentLight == 0),
+//           _buildTrafficLight(Colors.yellow, _currentLight == 1),
+//           _buildTrafficLight(Colors.green, _currentLight == 2),
+//           SizedBox(height: 20),
+//           ElevatedButton(
+//             onPressed: _changeLight,
+//             child: Text("เปลี่ยนไฟ"),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
 
+//   Widget _buildTrafficLight(Color color, bool isActive) {
+//     return AnimatedOpacity(
+//       duration: Duration(seconds: 1),
+//       opacity: isActive ? 1.0 : 0.3,
+//       child: Container(
+//         margin: EdgeInsets.all(10),
+//         width: 100,
+//         height: 100,
+//         decoration: BoxDecoration(
+//           shape: BoxShape.circle,
+//           color: color,
+//           boxShadow: isActive
+//               ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 20)]
+//               : [],
+//         ),
+//       ),
+//     );
 //   }
 // }
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+import 'package:flutter/material.dart';
 
-  // This widget is the root of your application.
+void main() {
+  runApp(const TrafficLightApp());
+}
+
+class TrafficLightApp extends StatelessWidget {
+  const TrafficLightApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyWidget(),
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
+      home: TrafficLightScreen(),
     );
-
-    // body : Container(
-    //   height:100,
-    //   width:100,
-    //   color: const Color.fromARGB(255, 156, 251, 174),
-    //   padding : EdgeInsets.all(20),
-    //   margin: const EdgeInsets.all(20),
-    //   child: const Text('Hello')
-    // )
-    // body: Row(
-    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-    //   children: [
-    //     Expanded(flex: 1, child:
-    //     Container(
-    //       padding : const EdgeInsets.all(20),
-    //       color: const Color.fromARGB(255, 9, 84, 165),
-    //       child: const Text("Almond",
-    //         style: TextStyle(color: Colors.white)))),
-    //     Expanded(flex: 1, child:
-    //     Container(
-    //       padding : const EdgeInsets.all(20),
-    //       color: const Color.fromARGB(255, 163, 197, 239),
-    //       child: const Text("Progress",
-    //         style: TextStyle(color: Colors.white)))),
-    //     Expanded(flex: 1, child:
-    //     Container(
-    //       padding : const EdgeInsets.all(20),
-    //       color: const Color.fromARGB(255, 9, 84, 165),
-    //       child: const Text("Shane",
-    //         style: TextStyle(color: Colors.white)))),
-    //        ]),
-
-    // floatingActionButton: FloatingActionButton(
-    //   onPressed: () {print("Hello2");
-    // },
-    // child: const Icon(Icons.phone),
-    //   ),
   }
 }
 
-class MyWidgetState {
-  const MyWidgetState();
-}
-
-class _MyWidgetState {
-  const _MyWidgetState();
-}
-
-class GreetingWidget extends StatelessWidget {
-  final String name;
-  const GreetingWidget({super.key, required this.name});
+class TrafficLightScreen extends StatefulWidget {
+  const TrafficLightScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-            title: const Text('Demo APP'),
-            backgroundColor: const Color.fromARGB(255, 244, 171, 195),
-            centerTitle: true),
-        body: Center(child: Text('Hello, $name')));
-  }
-}
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text('Custom Widget')),
-        // body: Center(
-        //   child: Column(
-        //     children: [
-        //       CustomCard(text: 'Blue', backgroundColor: const Color.fromARGB(255, 29, 16, 166), isCircle: true),
-        //       SizedBox(height: 20),
-        //       CustomCard(text: 'Red', backgroundColor: const Color.fromARGB(255, 168, 35, 48)),
-        //       SizedBox(height: 20),
-        //       CustomCard(text: 'Yellow', backgroundColor: const Color.fromARGB(255, 225, 207, 85)),
-        //     ],
-        //   )
-
-        // )
-        // body: const Center(
-        //   child: Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: [
-        //       CustomCounterWidget(
-        //         title: 'TEAM A',
-        //         backgroundColor: Colors.red,
-        //       ),
-        //       SizedBox(height: 10),
-        //       CustomCounterWidget(
-        //           title: 'TEAM B', backgroundColor: Colors.blue),
-        //     ],
-        //   ),
-        // )
-         body: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ProfileCard(
-                name: 'Patcharaporn Paythaisong', 
-                position: 'Student', 
-                email: 'paythaisong_p@silpakorn.edu', 
-                phone: '0805674895',
-                imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBCSncMky3y5D6cePikzRjNvJs2QozdiHruxOlu0fl1GUAFkOYbfy1iGSnyun6aQBuSeQ&usqp=CAU')
-            ],
-          ),
-        )
-        );
-  }
+  State<TrafficLightScreen> createState() => _TrafficLightScreenState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class _TrafficLightScreenState extends State<TrafficLightScreen> {
+  int _currentLight = 0; // 0 = แดง, 1 = เหลือง, 2 = เขียว
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
+  void _changeLight() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      _currentLight = (_currentLight + 1) % 3; // เปลี่ยนไฟทีละอัน
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      appBar: AppBar(title: const Text("Traffic Light Animation")),
+      body: Center(  // ใช้ Center เพื่อให้ทุกอย่างอยู่ตรงกลาง
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          children: [
+            AnimatedOpacity(
+              duration: const Duration(seconds: 1),
+              opacity: _currentLight == 0 ? 1.0 : 0.3,
+              child: _buildTrafficLight(Colors.red),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const SizedBox(height: 20),
+            AnimatedOpacity(
+              duration: const Duration(seconds: 1),
+              opacity: _currentLight == 1 ? 1.0 : 0.3,
+              child: _buildTrafficLight(Colors.yellow),
+            ),
+            const SizedBox(height: 20),
+            AnimatedOpacity(
+              duration: const Duration(seconds: 1),
+              opacity: _currentLight == 2 ? 1.0 : 0.3,
+              child: _buildTrafficLight(Colors.green),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _changeLight,
+              child: const Text("เปลี่ยนไฟ"),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _buildTrafficLight(Color color) {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: color,
+        boxShadow: [
+          BoxShadow(
+            color: color.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 15,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
     );
   }
 }
